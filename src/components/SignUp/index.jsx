@@ -17,7 +17,7 @@ export default function SignUp(){
             alert("Os campos de senhas não estão iguais.");
             return;
         }
-        const URL_SIGNUP = "http://localhost:5000/sign-up";
+        const URL_SIGNUP = `${process.env.REACT_APP_API_URL}/sign-up`;
         const request = axios.post(URL_SIGNUP, userData);
         setDisabled(true);
         request.then(() => navigate("/"));

@@ -16,7 +16,7 @@ export default function Home(){
     useEffect(() => !token && navigate("/"), [token, navigate]);
 
     useEffect(() => {
-        const URL_USER = 'http://localhost:5000/user';
+        const URL_USER = `${process.env.REACT_APP_API_URL}/user`;
         const config = {headers: { Authorization: `Bearer ${token}`}};
         const request = axios.get(URL_USER, config);
 
@@ -25,7 +25,7 @@ export default function Home(){
     }, [token]);
     
     function logOut() {
-        const URL_LOGOUT = 'http://localhost:5000/log-out';
+        const URL_LOGOUT = `${process.env.REACT_APP_API_URL}/log-out`;
         const config = {headers: { Authorization: `Bearer ${token}`}};
         const request = axios.delete(URL_LOGOUT, config);
 

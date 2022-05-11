@@ -16,7 +16,7 @@ export default function NewOut(){
 
     function newOutTransaction(e){
         e.preventDefault();
-        const URL_NEWOUT = "http://localhost:5000/user/transactions";
+        const URL_NEWOUT = `${process.env.REACT_APP_API_URL}/user/transactions`;
         const config = {headers: { Authorization: `Bearer ${token}`}};
         const body = {...transactionData, amount: parseFloat(transactionData.amount.replace(",",".")).toFixed(2)};
         const request = axios.post(URL_NEWOUT, body, config);

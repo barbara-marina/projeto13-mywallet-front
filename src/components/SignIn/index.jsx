@@ -13,7 +13,7 @@ export default function SignIn(){
 
     function signIn(e) {
         e.preventDefault();
-        const URL_SIGNIN = 'http://localhost:5000/sign-in';
+        const URL_SIGNIN = `${process.env.REACT_APP_API_URL}/sign-in`;
         const request = axios.post(URL_SIGNIN, userData);
         setDisabled(true);
         request.then(response => {setToken(response.data);

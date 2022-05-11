@@ -15,7 +15,7 @@ export default function App() {
 
     function updateTransactions() {
         const config = {headers: { Authorization: `Bearer ${token}`}};
-        const URL_USER = 'http://localhost:5000/user';
+        const URL_USER = `${process.env.REACT_APP_API_URL}/user`;
         const request = axios.get(URL_USER, config);
         
         request.then(() => console.log("Atualizado."));
